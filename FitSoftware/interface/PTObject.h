@@ -9,6 +9,9 @@
 #define PTObject_H_
 #include "TMatrixT.h"
 #include "TMatrixTSym.h"
+#include <math.h>
+#include <stdio.h>
+
 
 class PTObject{
 
