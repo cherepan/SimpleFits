@@ -50,7 +50,8 @@ double LorentzVectorParticle::Covariance(int i,int j){
 		return -(Particle::Covariance(j,m)*Parameter(m) + Particle::Covariance(j,px)*Parameter(px) +
 				 Particle::Covariance(j,py)*Parameter(py) + Particle::Covariance(j,pz)*Parameter(pz)) / Parameter(E);
 	if (j==E && (i==px || i==py || i==pz))
-		return Covariance(j,i);
-
+		return Covariance(j,i); 
 	return Particle::Covariance(i,j);
-}
+}  
+ 
+ 

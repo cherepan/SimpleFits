@@ -26,12 +26,12 @@ class LorentzVectorParticle : public Particle {
   TMatrixTSym<double> LVCov(){
 	TMatrixTSym<double> lvcov(4);
     for(int i=px;i<=pz;i++){
-      for(int j=px;j<pz;j++){lvcov(i,j)=Covariance(i,j);} // 3x3 matrix
-      lvcov(4,i) = Covariance(E,i);
-      lvcov(i,4) = lvcov(4,i);
+      for(int j=px;j<=pz;j++){lvcov(i-px,j-px)=Covariance(i ,j);} // 3x3 matrix
+           lvcov(3,i-px) = Covariance(E,i);
+           lvcov(i-px,3) = lvcov(3,i-px);
     }
-    lvcov(4,4) = Covariance(E,E);
-    return lvcov;
+      lvcov(3,3) = Covariance(E,E);
+    return lvcov; 
   }
   TVector3 Vertex(){return TVector3(Parameter(vx),Parameter(vy),Parameter(vz));}
   TMatrixTSym<double> VertexCov(){
